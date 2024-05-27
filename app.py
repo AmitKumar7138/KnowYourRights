@@ -44,19 +44,44 @@ astra_vector_index = VectorStoreIndexWrapper(vectorstore=astra_vector_store)
 # Define function to get response from vector store index
 def get_response(input):
     answer = astra_vector_index.query(input, llm=llm).strip()
-    response = f"ANSWER: \"{answer}\"\n"
+    response = f"\"{answer}\"\n"
     return response
 
 
 # Initialize Streamlit app
-# st.set_page_config(page_title="Indian Constitution Q&A")
+st.image("cons.jpeg", caption="Constitution of India", use_column_width=True)
+
 st.header("Ask any question related to the Constitution of India.")
 
-input = st.text_input("Input: ", key="input")
+# Chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-submit = st.button("Ask a question")
+# Display chat history
+for sender, message in st.session_state.messages:
+    if sender == "user":
+         st.markdown(f"""
+        <div style="background-color:#daf5e9; padding:10px; border-radius:5px; margin-bottom:5px; color:#000">
+            <strong>You:</strong> {message}
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown(f"""
+        <div style="background-color:#f0f0f5; padding:10px; border-radius:5px; margin-bottom:5px; color:#000">
+            <strong>Bot:</strong> {message}
+        </div>
+        """, unsafe_allow_html=True)
 
-if submit:
-    response = get_response(input)
-    st.subheader("The Response is")
-    st.write(response)
+# User input
+with st.form(key="chat_form", clear_on_submit=True):
+    user_input = st.text_input("You: ", key="input")
+    submit = st.form_submit_button("Send")
+
+# Handle user input
+if submit and user_input:
+    # Display user message
+    st.session_state.messages.append(("user", user_input))
+    # Get bot response
+    response = get_response(user_input)
+    st.session_state.messages.append(("bot", response))
+    st.experimental_rerun()
