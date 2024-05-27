@@ -1,5 +1,5 @@
 # Indian Constitution Q&A App
-Welcome to the Indian Constitution Q&A App! This application allows users to ask any question about the Constitution of India and get precise answers extracted directly from the document.
+Welcome to the Indian Constitution Q&A App! This application allows users to ask any question about the Constitution of India and get precise answers extracted directly from the document using state of the Art LLM and Langchain technologies.
 
 ![App Banner](./const_sst.png)
 
