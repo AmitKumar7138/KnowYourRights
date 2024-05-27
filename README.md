@@ -93,10 +93,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any inquiries or feedback, please contact:
 
-- **Kartik Pandit**
-  - Email: kartikpandit712@gmail.com
-  - LinkedIn: [Kartik Pandit](https://www.linkedin.com/in/kartikp7/)
-  - GitHub: [Kartik Pandit](https://github.com/kartikpandit712)
+- **Amit Kumar**
+  - Email: amitprataprana41@gmail.com
+  - LinkedIn: [Amit Kumar](https://www.linkedin.com/in/amit-kumar-7b72b9176/)
+  - GitHub: [Amit Kumar](https://github.com/AmitKumar7138)
 
 ---
 
